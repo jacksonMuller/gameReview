@@ -1,14 +1,16 @@
-import { login, logout, loggedInUserDisplayName } from "../services/authService"
+import { login, logout, loggedInUserDisplayName } from "../services/authService.js"
+import { Button } from "./ui/Button"
 
 export function SignIn() {
-  return <button onClick={login}>Sign In</button>
+  return <Button onClick={login}>Sign In</Button>
 }
 
 export function SignOut() {
   return (
     <div>
-      {loggedInUserDisplayName()}  
-      <button onClick={logout}>Sign Out</button>
+      Hello, {loggedInUserDisplayName()}  
+      <Button onClick={logout}>Sign Out</Button>
     </div>
   )
 }
+

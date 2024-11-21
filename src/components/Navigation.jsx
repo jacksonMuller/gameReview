@@ -1,14 +1,10 @@
-import React from "react";
-import { useState } from 'react'
-import {SignIn, SignOut} from "./Auth"
-import { useAuthentication } from "../services/authService"
-const Navigation = () => {
+import {SignIn, SignOut} from "./auth"
 
-  const user = useAuthentication()
-  
+const Navigation = ({user}) => {
+  console.log(user);
   return (
-    <nav className="flex justify-between flex-row border-solid border-2 p-5">
-      <h1>Game Review</h1>
+    <nav className="flex justify-between flex-row border-solid border-b-2 p-5 items-center">
+      <h1 className="text-4xl font-bold">Game Review</h1>
       {!user ? <SignIn /> : <SignOut />}
     </nav>
   );
