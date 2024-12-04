@@ -28,7 +28,12 @@ exports.searchGames = onRequest(async (req, res) => {
     }
 
     const url = "https://api.igdb.com/v4/games";
-    const searchQuery = `fields name, genres.name, cover.url; search "${query}"; limit 10;`;
+    const searchQuery = `
+      fields name, genres.name, cover.url, summary, first_release_date, aggregated_rating, platforms.name, screenshots.url, involved_companies.company.name;
+      search "${query}";
+      limit 10;
+    `;
+
 
     try {
       const response = await axios.post(url, searchQuery, {
