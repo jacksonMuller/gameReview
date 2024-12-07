@@ -22,7 +22,6 @@ const Search = ({setResults}) => {
     }
   };
 
-  
   return (
     <>
       <form onSubmit={(e) => handleSearch(e)}>

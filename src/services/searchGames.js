@@ -5,9 +5,9 @@ export const searchGames = async (query) => {
     const response = await fetch(url, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json", // Specify JSON content type
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({ query }), // Send the query in the body
+      body: JSON.stringify({ query }),
     });
 
     if (!response.ok) {
@@ -15,7 +15,6 @@ export const searchGames = async (query) => {
     }
 
     const data = await response.json();
-    console.log("Search Results:", data);
     return data;
   } catch (error) {
     console.error("Error fetching games:", error);

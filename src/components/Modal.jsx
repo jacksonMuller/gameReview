@@ -1,25 +1,41 @@
-import { Reviews } from './Reviews'; // Import the Reviews component
+import React from 'react';
+import { Reviews } from './Reviews';
 
 export const Modal = ({ result, setModalOpen }) => {
-  // Helper function to format release date
   const formatDate = (timestamp) => {
-    const date = new Date(timestamp * 1000); // Convert Unix timestamp to milliseconds
+    const date = new Date(timestamp * 1000);
     return date.toLocaleDateString();
   };
 
+  const handleOverlayClick = (e) => {
+    if (e.target === e.currentTarget) {
+      setModalOpen(false);
+    }
+  };
+
   return (
-    <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-70 w-full h-full">
-      <button className="absolute top-2 right-2 text-white" onClick={() => setModalOpen(false)}>Close</button>
-      <div className="bg-white p-6 rounded shadow-lg w-3/4 flex flex-col max-h-[90%] overflow-y-auto">
-        {/* Top Section: Game Image and Details */}
+    <div 
+      className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-70 w-full h-full"
+      onClick={handleOverlayClick}
+    >
+      <div className="bg-white p-6 rounded shadow-lg w-3/4 flex flex-col max-h-[90%] overflow-y-auto relative">
+        <button
+          className="absolute top-2 right-2 text-black"
+          onClick={() => setModalOpen(false)}
+        >
+          X
+        </button>
+        
         <div className="flex mb-4">
-          <div className="flex-shrink-0 mr-4">
-            <img 
-              src={result.cover?.url} 
-              alt={result.name} 
-              className="w-26 h-auto rounded-lg shadow-md"
-            />
-          </div>
+          {result.cover?.url && (
+            <div className="flex-shrink-0 mr-4">
+              <img 
+                src={result.cover?.url} 
+                alt={result.name} 
+                className="w-26 h-auto rounded-lg shadow-md"
+              />
+            </div>
+          )}
           <div className="flex-grow flex flex-col">
             <h2 
               className="font-bold text-gray-800 mb-4 text-left"
@@ -55,7 +71,7 @@ export const Modal = ({ result, setModalOpen }) => {
                   <p className="text-gray-700">{formatDate(result.first_release_date)}</p>
                 </div>
               )}
-              {result.aggregated_rating && (
+              {typeof result.aggregated_rating === 'number' && (
                 <div className="flex">
                   <strong className="w-32 text-gray-800">Rating:</strong>
                   <p className="text-gray-700">{result.aggregated_rating.toFixed(1)} / 100</p>
@@ -64,12 +80,15 @@ export const Modal = ({ result, setModalOpen }) => {
             </div>
           </div>
         </div>
-
-        {/* Bottom Section: Reviews */}
         <div className="flex flex-col">
-          <Reviews gameId={result.id} />
+          <Reviews 
+            gameId={result.id} 
+            gameName={result.name} 
+            coverUrl={result.cover?.url || ''} 
+          />
         </div>
       </div>
     </div>
   );
 };
+export default Modal; 
