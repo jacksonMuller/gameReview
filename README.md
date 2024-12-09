@@ -8,7 +8,8 @@ Our mission is to give gamers a place to give their honest feedback on games,
 discover highly-rated games, and explore new ones so they can always find something fun to play. 
 
 <h4>API Used:</h4>
-We used the IGDB API to search for game titles and display details like the summary, available consoles, IGDB rating, release date, and genre.
+We used the <a href="https://api-docs.igdb.com/#getting-started">IGDB</a> API to search for game titles and display details like the summary, available consoles, IGDB rating, release date, and genre.
+
 
 <h4>Project Members</h4>
 <ul>
