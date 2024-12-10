@@ -24,9 +24,9 @@ const Search = ({setResults}) => {
 
   return (
     <>
-      <form onSubmit={(e) => handleSearch(e)}>
-          <input className='text-black rounded-md px-4 py-2 w-30%' type='text' value={query} onChange={(e) => setQuery(e.target.value)} placeholder='Enter game name' />
-          <Button className='mx-2 px-0.7 py-0.7 font-small' type='submit' disabled={loading}>{loading ? 'Loading...' : 'Search'}</Button>
+      <form className = 'mt-2 ml-2 sm:ml-0 sm:mt-0' onSubmit={(e) => handleSearch(e)}>
+          <input className='text-black rounded-md px-2 sm:px-4 py-2 w-20% sm:w-30%' type='text' value={query} onChange={(e) => setQuery(e.target.value)} placeholder='Enter game name' />
+          <Button className='sm:mx-2 px-0.7 py-0.5 mt-2 sm:py-0.7 font-small' type='submit' disabled={loading}>{loading ? 'Loading...' : 'Search'}</Button>
       </form>
       {error && <p>Can't search nothing</p>}
     </>

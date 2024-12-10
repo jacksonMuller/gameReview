@@ -39,7 +39,11 @@ export const Reviews = ({ gameId, gameName, coverUrl }) => {
       setNewReview('');
       setRating(0);
     } else {
-      alert('Please provide both a rating and a review.');
+      if (!username) {
+        alert('Please sign in to add a review.');
+      } else {
+        alert('Please provide both a rating and a review.');
+      }
     }
   };
 
@@ -85,7 +89,7 @@ export const Reviews = ({ gameId, gameName, coverUrl }) => {
             count={10}
             value={rating}
             onChange={(newRating) => setRating(newRating)}
-            size={40}
+            size={window.innerWidth < 768 ? 30 : 40}
             isHalf={true}
             activeColor="#ffd700"
           />

@@ -3,6 +3,7 @@ import Search from './Search';
 import { Button } from './ui/Button';
 import { Modal } from './Modal';
 import FetchTopGames from './fetchTopGames';
+import GameCard from './GameCard';
 
 const Content = ({ user, modalOpen, modalContent, setModalOpen, openModal }) => {
   const [results, setResults] = useState([]);
@@ -18,7 +19,7 @@ const Content = ({ user, modalOpen, modalContent, setModalOpen, openModal }) => 
   return (
     <>
       {!user && <div>User is not logged in</div>}
-      <div className="flex flex-row justify-between items-center px-5">
+      <div className="flex flex-row justify-between items-center sm:px-5">
         <Search setResults={handleSearch} />
       </div>
 
@@ -32,14 +33,14 @@ const Content = ({ user, modalOpen, modalContent, setModalOpen, openModal }) => 
           <h1 className="text-4xl font-bold mt-8">Search Results</h1>
           <ul>
             {results.map((result) => (
-              <Button
+              <button
                 key={result.id}
-                className="text-white flex flex-start w-4/5 p-2 m-5"
                 type="button"
+                className='w-1/3 sm:w-1/5 mx-2 my-2'
                 onClick={() => openModal(result)}
               >
-                {result.name}
-              </Button>
+                <GameCard game={result} />
+              </button>
             ))}
           </ul>
         </div>

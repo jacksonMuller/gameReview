@@ -7,7 +7,7 @@ const GameCard = ({ game, onClick }) => {
 
   return (
     <div
-      className="bg-gray-800 rounded-lg shadow-lg p-2 w-1/6 cursor-pointer hover:shadow-xl transition-transform transform hover:scale-105 border border-white"
+      className="bg-gray-800 rounded-lg shadow-lg p-2 cursor-pointer hover:shadow-xl transition-transform transform hover:scale-105 border border-white"
       onClick={onClick}
     >
       <div className="relative w-full h-32 overflow-hidden rounded">

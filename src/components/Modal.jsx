@@ -18,7 +18,7 @@ export const Modal = ({ result, setModalOpen }) => {
       className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-70 w-full h-full"
       onClick={handleOverlayClick}
     >
-      <div className="bg-white p-6 rounded shadow-lg w-3/4 flex flex-col max-h-[90%] overflow-y-auto relative">
+      <div className="bg-white p-6 rounded shadow-lg w-11/12 sm:w-3/4 max-w-2xl flex flex-col max-h-[90%] overflow-y-auto relative">
         <button
           className="absolute top-2 right-2 text-black"
           onClick={() => setModalOpen(false)}
@@ -26,21 +26,20 @@ export const Modal = ({ result, setModalOpen }) => {
           X
         </button>
         
-        <div className="flex mb-4">
+        <div className="flex flex-col md:flex-row mb-4">
           {result.cover?.url && (
-            <div className="flex-shrink-0 mr-4">
+            <div className="flex-shrink-0 mb-4 md:mb-0 md:mr-4 flex sm:block justify-center">
               <img 
                 src={result.cover?.url} 
                 alt={result.name} 
-                className="w-26 h-auto rounded-lg shadow-md"
+                className="w-40 md:w-26 h-auto rounded-lg shadow-md"
               />
             </div>
           )}
           <div className="flex-grow flex flex-col">
             <h2 
-              className="font-bold text-gray-800 mb-4 text-left"
+              className="font-bold text-gray-800 mb-4 text-left text-2xl sm:text-3xl"
               style={{
-                fontSize: '35px',
                 wordBreak: 'break-word',
               }}
             >

@@ -88,7 +88,7 @@ export default function FetchTopGames({ onGameClick }) {
         {topGames.length > 0 && (
           <>
             <h2 className="text-3xl font-bold mb-4 text-center">Top Rated Games</h2>
-            <div className="flex flex-wrap gap-4 justify-center">
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-4 justify-center px-10 sm:px-20">
               {topGames.map((game) => (
                 <GameCard 
                   key={game.gameId} 
