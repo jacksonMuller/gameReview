@@ -2,8 +2,10 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore"; // Import Firestore
 
+const apiKey = import.meta.env.VITE_API_KEY;
+
 const firebaseConfig = {
-  apiKey: "AIzaSyAvEZ2-48w1lkYOTfgJTUjynLJYjWF6Cx0",
+  apiKey: apiKey,
   authDomain: "gamereview-3f7da.firebaseapp.com",
   projectId: "gamereview-3f7da",
   storageBucket: "gamereview-3f7da.firebasestorage.app",
